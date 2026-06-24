@@ -104,10 +104,6 @@ class MLAgent:
         speed    = state.get("current_speed", 0)
         distance = state.get("distance", 0)
 
-        if distance < 15 and distance > 0 and speed > 3:
-            self._action_cooldown = 0
-            return {"command": "full_stop"}
-
         if self._action_cooldown > 0:
             self._action_cooldown -= 1
             return {}
